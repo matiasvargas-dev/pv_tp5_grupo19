@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+}
+
+.logo {
+  padding: 15px;
+  width: 40px;
+  height: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+.menu li {
+  list-style: none;
+}
