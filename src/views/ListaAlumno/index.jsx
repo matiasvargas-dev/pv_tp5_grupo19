@@ -1,11 +1,24 @@
 import ListaLayout from "./layout/ListaLayout";
-import Title from "../../components/ui/Title"
+import AlumnoCard from "./layout/AlumnoCard";
+import Title from "../../components/ui/Title";
 
-const ListaAlumnos = () => {
+const ListaAlumnos = ({ alumnos, eliminarAlumno }) => {
   return (
     <>
       <ListaLayout>
         <Title description={"Lista de Alumnos"} />
+        {
+          alumnos.length === 0 ? (
+            <p>No hay alumnos registrados.</p>
+          ) : (
+            alumnos.map(alumno => (
+              <AlumnoCard
+                key={alumno.id}
+                alumno={alumno}
+                onDelete={eliminarAlumno}
+              />
+            ))
+          )}
       </ListaLayout>
     </>
   );
