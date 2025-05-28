@@ -1,13 +1,13 @@
-import Navbar from "./components/Navbar";
+import { AppRouter } from "./AppRouter";
 
 import "./App.css";
 
 function App() {
-	return (
-		<>
-		  <h1 className="title">My App</h1>
-		</>
-	);
+  return (
+    <>
+      <AppRouter />
+    </>
+  );
 }
 
 export default App;
