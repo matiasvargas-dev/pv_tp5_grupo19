@@ -4,7 +4,7 @@ import { Navigate } from "react-router";
 import NavBar from "./components/Navbar";
 import Home from "./views/Home";
 import AcercaDe from "./views/AcercaDe";
-import ListaAlumnos from "./views/ListaAlumno"
+import ListaAlumnos from "./views/ListaAlumno";
 import NuevoAlumno from "./views/NuevoAlumno";
 
 export const AppRouter = () => {
