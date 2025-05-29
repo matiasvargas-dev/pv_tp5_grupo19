@@ -1,5 +1,5 @@
 import ListaLayout from "./layout/ListaLayout";
-import Title from "../../components/ui/Title"
+import Title from "../../components/ui/Title";
 
 const ListaAlumnos = () => {
   return (
