@@ -21,7 +21,7 @@ const NavBar = () => {
               <Link to={"/lista-alumnos"}>Lista de Alumnos</Link>
             </li>
             <li>
-              <Link to={"/nuevo-alumno"}>Nuevo Alumnos</Link>
+              <Link to={"/formulario-alumno"}>Crear Alumno</Link>
             </li>
             <li>
               <Link to={"/acerca"}>Acerca de</Link>
