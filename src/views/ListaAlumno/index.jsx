@@ -42,7 +42,7 @@ const ListaAlumnos = ({ alumnos, eliminarAlumno, editarAlumno }) => {
         onEditarAlumno={editarAlumno}
         alumnos={alumnos}
       />
-    </>
+    </div>
   );
 };
 
