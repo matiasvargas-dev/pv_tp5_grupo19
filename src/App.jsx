@@ -9,9 +9,18 @@ function App() {
   const agregarAlumno = (nuevoAlumno) => {
     setAlumnos((prev) => [...prev, nuevoAlumno]);
   };
+
+  const editarAlumno = (alumnoEditado) => {
+    setAlumnos((prev) =>
+      prev.map((alumno) =>
+        alumno.id === alumnoEditado.id ? { ...alumnoEditado } : alumno,
+      ),
+    );
+  };
+
   const eliminarAlumno = (id) => {
     const confirmacion = window.confirm(
-      "Seguro que queres eliminar este alumno?"
+      "Seguro que queres eliminar este alumno?",
     );
     if (confirmacion) {
       setAlumnos(alumnos.filter((alumno) => alumno.id !== id));
@@ -23,6 +32,7 @@ function App() {
         alumnos={alumnos}
         eliminarAlumno={eliminarAlumno}
         agregarAlumno={agregarAlumno}
+        editarAlumno={editarAlumno}
       />
     </>
   );

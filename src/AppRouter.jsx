@@ -7,7 +7,12 @@ import AlumnoDetalle from "./views/ListaAlumno/AlumnoDetalle";
 import ListaAlumnos from "./views/ListaAlumno";
 import NuevoAlumno from "./views/NuevoAlumno";
 
-export const AppRouter = ({ alumnos, eliminarAlumno, agregarAlumno }) => {
+export const AppRouter = ({
+  alumnos,
+  eliminarAlumno,
+  agregarAlumno,
+  editarAlumno,
+}) => {
   return (
     <BrowserRouter>
       <NavBar />
@@ -16,10 +21,22 @@ export const AppRouter = ({ alumnos, eliminarAlumno, agregarAlumno }) => {
         <Route index path="/" element={<Home />} />
 
         {/* Lista Alumnos */}
-        <Route path="/lista-alumnos" element={<ListaAlumnos alumnos={alumnos} eliminarAlumno={eliminarAlumno} />} />
+        <Route
+          path="/lista-alumnos"
+          element={
+            <ListaAlumnos
+              alumnos={alumnos}
+              eliminarAlumno={eliminarAlumno}
+              editarAlumno={editarAlumno}
+            />
+          }
+        />
 
         {/* Detalle Alumno */}
-        <Route path="/alumno/:id" element={<AlumnoDetalle alumnos={alumnos} />} />
+        <Route
+          path="/alumno/:id"
+          element={<AlumnoDetalle alumnos={alumnos} />}
+        />
         {/* Nuevo Alumno */}
         <Route
           path="/nuevo-alumno"
