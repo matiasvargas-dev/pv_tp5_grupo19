@@ -2,7 +2,7 @@
 const alumnos = [
   {
     id: 1,
-    lu: "APU001",
+    lu: "APU00001",
     nombre: "Juan",
     apellido: "Pérez",
     curso: "Tercero",
@@ -12,7 +12,7 @@ const alumnos = [
   },
   {
     id: 2,
-    lu: "APU002",
+    lu: "APU00002",
     nombre: "Ana",
     apellido: "Gómez",
     curso: "Segundo",
@@ -22,7 +22,7 @@ const alumnos = [
   },
   {
     id: 3,
-    lu: "APU003",
+    lu: "APU00003",
     nombre: "Luis",
     apellido: "Martínez",
     curso: "Primero",
@@ -32,7 +32,7 @@ const alumnos = [
   },
   {
     id: 4,
-    lu: "APU004",
+    lu: "APU00004",
     nombre: "María",
     apellido: "López",
     curso: "Cuarto",
