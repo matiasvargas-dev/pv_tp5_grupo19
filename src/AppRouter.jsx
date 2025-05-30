@@ -6,7 +6,7 @@ import AcercaDe from "./views/AcercaDe";
 import ListaAlumnos from "./views/ListaAlumno";
 import NuevoAlumno from "./views/NuevoAlumno";
 
-export const AppRouter = () => {
+export const AppRouter = ({ alumnos, eliminarAlumno, agregarAlumno }) => {
   return (
     <BrowserRouter>
       <NavBar />
