@@ -1,3 +1,4 @@
+import "../style.css";
 const ListaLayout = ({ children }) => {
   return (
     <>
