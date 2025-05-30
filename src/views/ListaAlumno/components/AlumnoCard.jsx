@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-const AlumnoCard = ({ alumno, onDelete }) => {
+const AlumnoCard = ({ alumno, onDelete, onEditar }) => {
   const { id, nombre, apellido, curso } = alumno;
   return (
     <div>
@@ -7,7 +7,7 @@ const AlumnoCard = ({ alumno, onDelete }) => {
       <p><strong>Curso:</strong> {curso}</p>
       <div>
         <Link to={`/alumno/${id}`}>Ver</Link>
-        <Link to={`/alumno/${id}/editar`}>Editar</Link>
+        <button onClick={onEditar}>Editar</button>
         <button onClick={() => onDelete(id)}>Eliminar</button>
       </div>
     </div>
