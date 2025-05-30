@@ -1,5 +1,5 @@
 import ListaLayout from "./layout/ListaLayout";
-import AlumnoCard from "./layout/AlumnoCard";
+import AlumnoCard from "./components/AlumnoCard";
 import Title from "../../components/ui/Title";
 
 const ListaAlumnos = ({ alumnos, eliminarAlumno }) => {

@@ -1,13 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router";
-import { Navigate } from "react-router";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import Home from "./views/Home";
 import AcercaDe from "./views/AcercaDe";
-import ListaAlumnos from "./views/ListaAlumno"
+import ListaAlumnos from "./views/ListaAlumno";
 import NuevoAlumno from "./views/NuevoAlumno";
 
-export const AppRouter = () => {
+export const AppRouter = ({ alumnos, eliminarAlumno, agregarAlumno }) => {
   return (
     <BrowserRouter>
       <NavBar />
@@ -21,7 +20,12 @@ export const AppRouter = () => {
         {/* Detalle Alumno */}
         <Route path="/alumno/:id" element={<AlumnoDetalle alumnos={alumnos} />} />
         {/* Nuevo Alumno */}
-        <Route path="/nuevo-alumno" element={<NuevoAlumno />} />
+        <Route
+          path="/nuevo-alumno"
+          element={
+            <NuevoAlumno alumnos={alumnos} agregarAlumno={agregarAlumno} />
+          }
+        />
 
         {/* Acerca de */}
         <Route path="/acerca" element={<AcercaDe />} />
