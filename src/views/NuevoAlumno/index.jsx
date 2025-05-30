@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Title from "../../components/ui/Title";
-import "./style.css";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import MenuItem from "@mui/material/MenuItem";
+import Alert from "@mui/material/Alert";
 import NuevoLayout from "./layout/NuevoLayout";
 
 function NuevoAlumno({ agregarAlumno, alumnos }) {
@@ -149,148 +153,113 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
 
   return (
     <NuevoLayout>
-      <div className="form-container">
+      <Box className="form-container">
         <Title description="Crear Nuevo Alumno" />
 
-        <form onSubmit={handleSubmit} className="alumno-form">
+        <Box component="form" onSubmit={handleSubmit} className="alumno-form">
           {errores.general && (
-            <div className="error-general">{errores.general}</div>
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {errores.general}
+            </Alert>
           )}
 
-          <div className="form-grid">
-            {/* LU */}
-            <div className="form-group">
-              <label htmlFor="lu">LU *</label>
-              <input
-                type="text"
-                id="lu"
-                name="lu"
-                value={formData.lu}
-                onChange={handleChange}
-                className={errores.lu ? "error" : ""}
-                placeholder="Ej: APU00999"
-                maxLength="8"
-              />
-              {errores.lu && (
-                <span className="error-message">{errores.lu}</span>
-              )}
-            </div>
+          <TextField
+            label="LU *"
+            name="lu"
+            value={formData.lu}
+            onChange={handleChange}
+            error={!!errores.lu}
+            helperText={errores.lu}
+            fullWidth
+            margin="normal"
+            inputProps={{ maxLength: 8 }}
+          />
+          <TextField
+            label="Nombre *"
+            name="nombre"
+            value={formData.nombre}
+            onChange={handleChange}
+            error={!!errores.nombre}
+            helperText={errores.nombre}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Apellido *"
+            name="apellido"
+            value={formData.apellido}
+            onChange={handleChange}
+            error={!!errores.apellido}
+            helperText={errores.apellido}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            select
+            label="Curso *"
+            name="curso"
+            value={formData.curso}
+            onChange={handleChange}
+            error={!!errores.curso}
+            helperText={errores.curso}
+            fullWidth
+            margin="normal"
+          >
+            <MenuItem value="">Seleccionar curso</MenuItem>
+            <MenuItem value="Primero">Primero</MenuItem>
+            <MenuItem value="Segundo">Segundo</MenuItem>
+            <MenuItem value="Tercero">Tercero</MenuItem>
+            <MenuItem value="Cuarto">Cuarto</MenuItem>
+            <MenuItem value="Quinto">Quinto</MenuItem>
+          </TextField>
+          <TextField
+            label="Email *"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            error={!!errores.email}
+            helperText={errores.email}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Domicilio"
+            name="domicilio"
+            value={formData.domicilio}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Teléfono"
+            name="telefono"
+            value={formData.telefono}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
 
-            {/* Nombre */}
-            <div className="form-group">
-              <label htmlFor="nombre">Nombre *</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                value={formData.nombre}
-                onChange={handleChange}
-                className={errores.nombre ? "error" : ""}
-                placeholder="Ej: María Eugenia"
-              />
-              {errores.nombre && (
-                <span className="error-message">{errores.nombre}</span>
-              )}
-            </div>
-
-            {/* Apellido */}
-            <div className="form-group">
-              <label htmlFor="apellido">Apellido *</label>
-              <input
-                type="text"
-                id="apellido"
-                name="apellido"
-                value={formData.apellido}
-                onChange={handleChange}
-                className={errores.apellido ? "error" : ""}
-                placeholder="Ej: Díaz"
-              />
-              {errores.apellido && (
-                <span className="error-message">{errores.apellido}</span>
-              )}
-            </div>
-
-            {/* Curso */}
-            <div className="form-group">
-              <label htmlFor="curso">Curso *</label>
-              <select
-                id="curso"
-                name="curso"
-                value={formData.curso}
-                onChange={handleChange}
-                className={errores.curso ? "error" : ""}
-              >
-                <option value="">Seleccionar curso</option>
-                <option value="Primero">Primero</option>
-                <option value="Segundo">Segundo</option>
-                <option value="Tercero">Tercero</option>
-                <option value="Cuarto">Cuarto</option>
-                <option value="Quinto">Quinto</option>
-              </select>
-              {errores.curso && (
-                <span className="error-message">{errores.curso}</span>
-              )}
-            </div>
-
-            {/* Email */}
-            <div className="form-group full-width">
-              <label htmlFor="email">Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={errores.email ? "error" : ""}
-                placeholder="Ej: mariadiaz@mail.com"
-              />
-              {errores.email && (
-                <span className="error-message">{errores.email}</span>
-              )}
-            </div>
-
-            {/* Domicilio */}
-            <div className="form-group full-width">
-              <label htmlFor="domicilio">Domicilio</label>
-              <input
-                type="text"
-                id="domicilio"
-                name="domicilio"
-                value={formData.domicilio}
-                onChange={handleChange}
-                placeholder="Ej: Av. Congreso 125"
-              />
-            </div>
-
-            {/* Teléfono */}
-            <div className="form-group">
-              <label htmlFor="telefono">Teléfono</label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                value={formData.telefono}
-                onChange={handleChange}
-                placeholder="Ej: 3884895999"
-              />
-            </div>
-          </div>
-
-          <div className="form-actions">
-            <button
+          <Box sx={{ display: "flex", gap: 2, justifyContent: "flex-end", mt: 2 }}>
+            <Button
               type="button"
               onClick={handleLimpiar}
-              className="btn-secondary"
+              variant="outlined"
+              color="secondary"
               disabled={enviando}
             >
               Limpiar
-            </button>
-            <button type="submit" className="btn-primary" disabled={enviando}>
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              disabled={enviando}
+            >
               {enviando ? "Creando..." : "Crear Alumno"}
-            </button>
-          </div>
-        </form>
-      </div>
+            </Button>
+          </Box>
+        </Box>
+      </Box>
     </NuevoLayout>
   );
 }
