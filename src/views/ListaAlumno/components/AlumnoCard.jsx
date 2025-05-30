@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 const AlumnoCard = ({ alumno, onDelete }) => {
   const { id, nombre, apellido, curso } = alumno;
   return (

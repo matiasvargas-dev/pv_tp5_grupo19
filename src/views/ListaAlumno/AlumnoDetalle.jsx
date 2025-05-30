@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 
 const AlumnoDetalle = ({ alumnos }) => {
   const { id } = useParams(); // Extraemos el id del parámetro de la URL
