@@ -13,14 +13,14 @@ function App() {
   const editarAlumno = (alumnoEditado) => {
     setAlumnos((prev) =>
       prev.map((alumno) =>
-        alumno.id === alumnoEditado.id ? { ...alumnoEditado } : alumno
-      )
+        alumno.id === alumnoEditado.id ? { ...alumnoEditado } : alumno,
+      ),
     );
   };
 
   const eliminarAlumno = (id) => {
     const confirmacion = window.confirm(
-      "Seguro que queres eliminar este alumno?"
+      "Seguro que queres eliminar este alumno?",
     );
     if (confirmacion) {
       setAlumnos(alumnos.filter((alumno) => alumno.id !== id));

@@ -75,7 +75,6 @@ const Modal = ({ alumno, isOpen, onClose, onEditarAlumno, alumnos }) => {
       nuevosErrores.email = "Email inválido";
     }
 
-    // Validar que no exista otra LU igual (excepto la del propio alumno)
     if (alumnos) {
       const luExistente = alumnos.find(
         (a) =>
