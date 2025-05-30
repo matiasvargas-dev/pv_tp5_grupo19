@@ -8,7 +8,7 @@ const NavBar = () => {
       <header className="container">
         <ImageLogo
           classname="logo"
-          src={"logo.svg"}
+          src={"/public/applogo.png"}
           alt={"logo"}
           title={"logo"}
         />
