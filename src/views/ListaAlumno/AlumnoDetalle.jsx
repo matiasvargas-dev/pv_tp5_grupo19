@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-
+import "./style.css";
 const AlumnoDetalle = ({ alumnos }) => {
   const { id } = useParams(); // Extraemos el id del parámetro de la URL
   const alumno = alumnos.find((a) => a.id === parseInt(id));

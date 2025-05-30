@@ -19,7 +19,7 @@ const ListaAlumnos = ({ alumnos, eliminarAlumno, editarAlumno }) => {
   };
 
   return (
-    <>
+    <div className="lista-alumnos-container">
       <ListaLayout>
         <Title description={"Lista de Alumnos"} />
         {alumnos.length === 0 ? (
