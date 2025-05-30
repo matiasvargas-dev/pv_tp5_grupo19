@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { Navigate } from "react-router";
 import NavBar from "./components/Navbar";
 import Home from "./views/Home";
 import AcercaDe from "./views/AcercaDe";
