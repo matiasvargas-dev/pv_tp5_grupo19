@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import "./style.css";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import Alert from "@mui/material/Alert";
 
 const Modal = ({ alumno, isOpen, onClose, onEditarAlumno, alumnos }) => {
   const [formData, setFormData] = useState({
@@ -30,8 +37,6 @@ const Modal = ({ alumno, isOpen, onClose, onEditarAlumno, alumnos }) => {
       setErrores({});
     }
   }, [alumno, isOpen]);
-
-  if (!isOpen) return null;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -126,149 +131,112 @@ const Modal = ({ alumno, isOpen, onClose, onEditarAlumno, alumnos }) => {
   };
 
   return (
-    <div className="modal-backdrop">
-      <div className="modal-editar">
-        <h2>Editar Alumno</h2>
-        <form onSubmit={handleSubmit} className="alumno-form">
+    <Dialog open={isOpen} onClose={handleCancelar} maxWidth="sm" fullWidth>
+      <DialogTitle>Editar Alumno</DialogTitle>
+      <form onSubmit={handleSubmit}>
+        <DialogContent>
           {errores.general && (
-            <div className="error-general">{errores.general}</div>
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {errores.general}
+            </Alert>
           )}
-
-          <div className="form-grid">
-            {/* LU */}
-            <div className="form-group">
-              <label htmlFor="lu">LU *</label>
-              <input
-                type="text"
-                id="lu"
-                name="lu"
-                value={formData.lu}
-                onChange={handleChange}
-                className={errores.lu ? "error" : ""}
-                placeholder="Ej: APU00999"
-                maxLength="8"
-              />
-              {errores.lu && (
-                <span className="error-message">{errores.lu}</span>
-              )}
-            </div>
-
-            {/* Nombre */}
-            <div className="form-group">
-              <label htmlFor="nombre">Nombre *</label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                value={formData.nombre}
-                onChange={handleChange}
-                className={errores.nombre ? "error" : ""}
-                placeholder="Ej: María Eugenia"
-              />
-              {errores.nombre && (
-                <span className="error-message">{errores.nombre}</span>
-              )}
-            </div>
-
-            {/* Apellido */}
-            <div className="form-group">
-              <label htmlFor="apellido">Apellido *</label>
-              <input
-                type="text"
-                id="apellido"
-                name="apellido"
-                value={formData.apellido}
-                onChange={handleChange}
-                className={errores.apellido ? "error" : ""}
-                placeholder="Ej: Díaz"
-              />
-              {errores.apellido && (
-                <span className="error-message">{errores.apellido}</span>
-              )}
-            </div>
-
-            {/* Curso */}
-            <div className="form-group">
-              <label htmlFor="curso">Curso *</label>
-              <select
-                id="curso"
-                name="curso"
-                value={formData.curso}
-                onChange={handleChange}
-                className={errores.curso ? "error" : ""}
-              >
-                <option value="">Seleccionar curso</option>
-                <option value="Primero">Primero</option>
-                <option value="Segundo">Segundo</option>
-                <option value="Tercero">Tercero</option>
-                <option value="Cuarto">Cuarto</option>
-                <option value="Quinto">Quinto</option>
-              </select>
-              {errores.curso && (
-                <span className="error-message">{errores.curso}</span>
-              )}
-            </div>
-
-            {/* Email */}
-            <div className="form-group full-width">
-              <label htmlFor="email">Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={errores.email ? "error" : ""}
-                placeholder="Ej: mariadiaz@mail.com"
-              />
-              {errores.email && (
-                <span className="error-message">{errores.email}</span>
-              )}
-            </div>
-
-            {/* Domicilio */}
-            <div className="form-group full-width">
-              <label htmlFor="domicilio">Domicilio</label>
-              <input
-                type="text"
-                id="domicilio"
-                name="domicilio"
-                value={formData.domicilio}
-                onChange={handleChange}
-                placeholder="Ej: Av. Congreso 125"
-              />
-            </div>
-
-            {/* Teléfono */}
-            <div className="form-group">
-              <label htmlFor="telefono">Teléfono</label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                value={formData.telefono}
-                onChange={handleChange}
-                placeholder="Ej: 3884895999"
-              />
-            </div>
-          </div>
-
-          <div className="form-actions">
-            <button
-              type="button"
-              onClick={handleCancelar}
-              className="btn-secondary"
-              disabled={enviando}
-            >
-              Cancelar
-            </button>
-            <button type="submit" className="btn-primary" disabled={enviando}>
-              {enviando ? "Guardando..." : "Guardar Cambios"}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+          <TextField
+            label="LU *"
+            name="lu"
+            value={formData.lu}
+            onChange={handleChange}
+            error={!!errores.lu}
+            helperText={errores.lu}
+            fullWidth
+            margin="normal"
+            inputProps={{ maxLength: 8 }}
+          />
+          <TextField
+            label="Nombre *"
+            name="nombre"
+            value={formData.nombre}
+            onChange={handleChange}
+            error={!!errores.nombre}
+            helperText={errores.nombre}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Apellido *"
+            name="apellido"
+            value={formData.apellido}
+            onChange={handleChange}
+            error={!!errores.apellido}
+            helperText={errores.apellido}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            select
+            label="Curso *"
+            name="curso"
+            value={formData.curso}
+            onChange={handleChange}
+            error={!!errores.curso}
+            helperText={errores.curso}
+            fullWidth
+            margin="normal"
+          >
+            <MenuItem value="">Seleccionar curso</MenuItem>
+            <MenuItem value="Primero">Primero</MenuItem>
+            <MenuItem value="Segundo">Segundo</MenuItem>
+            <MenuItem value="Tercero">Tercero</MenuItem>
+            <MenuItem value="Cuarto">Cuarto</MenuItem>
+            <MenuItem value="Quinto">Quinto</MenuItem>
+          </TextField>
+          <TextField
+            label="Email *"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            error={!!errores.email}
+            helperText={errores.email}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Domicilio"
+            name="domicilio"
+            value={formData.domicilio}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Teléfono"
+            name="telefono"
+            value={formData.telefono}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button
+            type="button"
+            onClick={handleCancelar}
+            color="secondary"
+            variant="outlined"
+            disabled={enviando}
+          >
+            Cancelar
+          </Button>
+          <Button
+            type="submit"
+            color="primary"
+            variant="contained"
+            disabled={enviando}
+          >
+            {enviando ? "Guardando..." : "Guardar Cambios"}
+          </Button>
+        </DialogActions>
+      </form>
+    </Dialog>
   );
 };
 
