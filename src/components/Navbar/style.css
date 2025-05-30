@@ -1,3 +1,12 @@
+.navbar-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a237e;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 2px 8px #0002;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -6,8 +15,8 @@
 }
 
 .logo {
-  padding: 15px;
-  width: 40px;
+  padding: 0.5rem;
+  width: 65px;
   height: auto;
 }
 
@@ -15,8 +24,24 @@
   display: flex;
   flex-direction: row;
   gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
 .menu li {
   list-style: none;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.menu a:hover {
+  background: #3949ab;
 }

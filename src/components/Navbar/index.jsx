@@ -5,10 +5,10 @@ import "./style.css";
 const NavBar = () => {
   return (
     <>
-      <header className="container">
+      <header className="container navbar-custom">
         <ImageLogo
           classname="logo"
-          src={"/public/applogo.png"}
+          src={"/applogo.png"}
           alt={"logo"}
           title={"logo"}
         />
