@@ -9,9 +9,6 @@ import Alert from "@mui/material/Alert";
 import NuevoLayout from "./layout/NuevoLayout";
 
 function NuevoAlumno({ agregarAlumno, alumnos }) {
-  const navigate = useNavigate();
-
-  // Estado inicial del formulario
   const [formData, setFormData] = useState({
     lu: "",
     nombre: "",
@@ -25,7 +22,6 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
   const [errores, setErrores] = useState({});
   const [enviando, setEnviando] = useState(false);
 
-  // Manejar cambios en los inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -33,7 +29,6 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
       [name]: value,
     }));
 
-    // Limpiar error del campo si existía
     if (errores[name]) {
       setErrores((prev) => ({
         ...prev,
@@ -42,11 +37,9 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
     }
   };
 
-  // Validar formulario
   const validarFormulario = () => {
     const nuevosErrores = {};
 
-    // Validaciones requeridas
     if (!formData.lu.trim()) {
       nuevosErrores.lu = "La LU es requerida";
     } else if (!/^[A-Z]{3}\d{5}$/.test(formData.lu.trim())) {
@@ -71,7 +64,6 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
       nuevosErrores.email = "Email inválido";
     }
 
-    // Validar que no existe otra LU igual
     if (alumnos) {
       const luExistente = alumnos.find(
         (a) => a.lu === formData.lu.trim().toUpperCase(),
@@ -84,7 +76,6 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
     return nuevosErrores;
   };
 
-  // Manejar envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -98,7 +89,6 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
     setEnviando(true);
 
     try {
-      // Preparar datos del alumno
       const nuevoAlumno = {
         id: Date.now(), // ID simple para el ejemplo
         lu: formData.lu.trim().toUpperCase(),
@@ -110,10 +100,8 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
         telefono: formData.telefono.trim(),
       };
 
-      // Agregar el nuevo alumno
       agregarAlumno(nuevoAlumno);
 
-      // Limpiar formulario
       setFormData({
         lu: "",
         nombre: "",
@@ -124,11 +112,7 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
         telefono: "",
       });
 
-      // Mostrar mensaje de éxito (opcional)
       alert("¡Alumno creado exitosamente!");
-
-      // Opcional: redirigir a la lista de alumnos
-      // navigate("/lista-alumnos");
     } catch (error) {
       console.error("Error al crear alumno:", error);
       setErrores({ general: "Error al crear el alumno. Intente nuevamente." });
@@ -137,7 +121,6 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
     }
   };
 
-  // Limpiar formulario
   const handleLimpiar = () => {
     setFormData({
       lu: "",
@@ -172,7 +155,7 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
             helperText={errores.lu}
             fullWidth
             margin="normal"
-            inputProps={{ maxLength: 8 }}
+            slotProps={{ maxLength: 8 }}
           />
           <TextField
             label="Nombre *"
@@ -239,7 +222,9 @@ function NuevoAlumno({ agregarAlumno, alumnos }) {
             margin="normal"
           />
 
-          <Box sx={{ display: "flex", gap: 2, justifyContent: "flex-end", mt: 2 }}>
+          <Box
+            sx={{ display: "flex", gap: 2, justifyContent: "flex-end", mt: 2 }}
+          >
             <Button
               type="button"
               onClick={handleLimpiar}
