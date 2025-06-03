@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router";
 import HomeLayout from "../Layout/HomeLayout";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -9,17 +9,18 @@ const Presentation = () => {
   const navigate = useNavigate();
   return (
     <HomeLayout>
-      <Paper elevation={3} 
-      sx={{
-        background: "linear-gradient(135deg, #ffa07a 0%, #cd5c5c 100%)"
-        borderRadius: 4,
-        p: { xs: 2, sm: 4 },
-        m: { xs: 2, sm: 4 },
-        maxWidth: 600,
-        mx: "auto",
-      }}
+      <Paper
+        elevation={3}
+        sx={{
+          background: "linear-gradient(135deg, #ffa07a 0%, #cd5c5c 100%)",
+          borderRadius: 4,
+          p: { xs: 2, sm: 4 },
+          m: { xs: 2, sm: 4 },
+          maxWidth: 600,
+          mx: "auto",
+        }}
       >
-         <Typography
+        <Typography
           variant="h3"
           sx={{
             color: "#34495e",
@@ -27,25 +28,24 @@ const Presentation = () => {
             mb: 2,
             fontSize: { xs: "1.4rem", sm: "2rem" },
           }}
-     
-      align="center"
->
-  Bienvenido a la Aplicación de Gestión de Alumnos
-         </Typography>
-   <Typography
-     variant="h5"
-      sx={{
-      color: "#2c3e50",
-      fontWeight: 500,
-      mt: 2,
-      mb: 1,
-      fontSize: { xs: "1.1rem", sm: "1.25rem" },
-      }}
-     align="center"
+          align="center"
         >
-      Facultad de Ingeneria - Programacion Visual 2025
-    </Typography>
-     <Typography
+          Bienvenido a la Aplicación de Gestión de Alumnos
+        </Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "#2c3e50",
+            fontWeight: 500,
+            mt: 2,
+            mb: 1,
+            fontSize: { xs: "1.1rem", sm: "1.25rem" },
+          }}
+          align="center"
+        >
+          Facultad de Ingeneria - Programacion Visual 2025
+        </Typography>
+        <Typography
           variant="body1"
           sx={{
             color: "#34495e",
@@ -53,11 +53,13 @@ const Presentation = () => {
             mb: 3,
           }}
           align="center"
-          >
-   Esta aplicación fue desarrollada por el Grupo 19 para el trabajo practico n°5 fue diseñada para facilitar 
-   la gestión de alumnos, permitiendo a los docentes llevar un control eficiente de la información académica y personal de los estudiantes.
-    </Typography>  
-     <Box display="flex" justifyContent="center">
+        >
+          Esta aplicación fue desarrollada por el Grupo 19 para el trabajo
+          practico n°5 fue diseñada para facilitar la gestión de alumnos,
+          permitiendo a los docentes llevar un control eficiente de la
+          información académica y personal de los estudiantes.
+        </Typography>
+        <Box display="flex" justifyContent="center">
           <Button
             variant="contained"
             color="primary"
@@ -67,9 +69,8 @@ const Presentation = () => {
             Ver Alumnos
           </Button>
         </Box>
-</Paper>
+      </Paper>
     </HomeLayout>
   );
 };
 export default Presentation;
-
