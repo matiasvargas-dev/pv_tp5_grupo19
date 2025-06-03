@@ -35,7 +35,7 @@ export const AppRouter = ({
         {/* Detalle Alumno */}
         <Route
           path="/alumno/:id"
-          element={<AlumnoDetalle alumnos={alumnos} />}
+          element={<AlumnoDetalle alumnos={alumnos} editarAlumno={editarAlumno} />}
         />
         {/* Nuevo Alumno */}
         <Route
