@@ -1,7 +1,7 @@
 // src/data/alumnos.js
 const alumnos = [
   {
-    id: 1,
+    id: 1315739351000,
     lu: "APU00001",
     nombre: "Juan",
     apellido: "Pérez",
@@ -11,7 +11,7 @@ const alumnos = [
     telefono: "987654321",
   },
   {
-    id: 2,
+    id: 1315739352000,
     lu: "APU00002",
     nombre: "Ana",
     apellido: "Gómez",
@@ -21,7 +21,7 @@ const alumnos = [
     telefono: "123456789",
   },
   {
-    id: 3,
+    id: 1315739353000,
     lu: "APU00003",
     nombre: "Luis",
     apellido: "Martínez",
@@ -31,7 +31,7 @@ const alumnos = [
     telefono: "987654321",
   },
   {
-    id: 4,
+    id: 1315739354000,
     lu: "APU00004",
     nombre: "María",
     apellido: "López",
