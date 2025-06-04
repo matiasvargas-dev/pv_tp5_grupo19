@@ -14,7 +14,7 @@ const Presentation = () => {
     <HomeLayout>
       <Paper elevation={3} 
       sx={{
-        background: "linear-gradient(135deg, #ffa07a 0%, #cd5c5c 100%)"
+        background: "linear-gradient(135deg, #ffa07a 0%, #cd5c5c 100%)",
         borderRadius: 4,
         p: { xs: 2, sm: 4 },
         m: { xs: 2, sm: 4 },
