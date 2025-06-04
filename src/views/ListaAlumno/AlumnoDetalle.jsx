@@ -36,6 +36,9 @@ const AlumnoDetalle = ({ alumnos, editarAlumno }) => {
           <strong>Domicilio:</strong> {alumno.domicilio || "No especificado"}<br />
           <strong>Teléfono:</strong> {alumno.telefono || "No especificado"}
         </Typography>
+        <Typography color="text.secondary">
+          <strong>Fecha de creación:</strong> {new Date(alumno.id).toLocaleDateString('es-AR')} {new Date(alumno.id).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}
+        </Typography>
       </CardContent>
       <CardActions sx={{mt: 0.1}}>
         <Button
