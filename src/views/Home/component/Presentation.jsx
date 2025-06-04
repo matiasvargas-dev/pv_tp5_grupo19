@@ -49,8 +49,8 @@ const Presentation = () => {
             align="center"
           >
             Esta aplicación fue desarrollada por el Grupo 19 para el trabajo
-            practico n°5 fue diseñada para facilitar la gestión de alumnos,
-            permitiendo a los docentes llevar un control eficiente de la
+            práctico n°5. Fue diseñada para facilitar la gestión de alumnos
+            y permite a los docentes llevar un control eficiente de la
             información académica y personal de los estudiantes.
           </Typography>{" "}
           <Typography
@@ -64,7 +64,7 @@ const Presentation = () => {
             }}
             align="center"
           >
-            Facultad de Ingeneria - Programacion Visual 2025
+            Facultad de Ingeniería - Programación Visual 2025
           </Typography>
           <Box display="flex" justifyContent="center">
             <Button
@@ -74,7 +74,7 @@ const Presentation = () => {
               color="primary"
               sx={{ borderRadius: 2, px: 4, py: 1 }}
             >
-              Ver Alumnos
+              Integrantes 
             </Button>
           </Box>
         </Paper>
