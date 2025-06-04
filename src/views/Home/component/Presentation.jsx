@@ -6,15 +6,12 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 
 const Presentation = () => {
-  const handleVerAlumnos = () => {
-    // Redirigir a la página de alumnos
-    window.location.href = "/acercade";
-  };
+  const navigate = useNavigate();
   return (
     <HomeLayout>
       <Paper elevation={3} 
       sx={{
-        background: "linear-gradient(135deg, #ffa07a 0%, #cd5c5c 100%)",
+        background: "linear-gradient(135deg, #ffa07a 0%, #cd5c5c 100%)"
         borderRadius: 4,
         p: { xs: 2, sm: 4 },
         m: { xs: 2, sm: 4 },
