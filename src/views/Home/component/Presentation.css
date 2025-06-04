@@ -1,0 +1,37 @@
+.presentation-container {
+  background: linear-gradient(135deg, #ffa07a 0%, #cd5c5c 100%);
+  border-radius: 16px;
+  padding: 32px 24px;
+  margin: 32px auto;
+  max-width: 600px;
+}
+
+.presentation-subtitle {
+  font-size: 20px;
+  color: #2c3e50;
+  margin-top: 17px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.presentation-text {
+  font-size: 20px;
+  color: #34495e;
+  margin-bottom: 0px;
+}
+.presentation-title {
+  font-size: 2rem;
+  color: #34495e;
+  margin-bottom: 8px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  .presentation-container {
+    padding: 16px 8px;
+  }
+  .presentation-title {
+    font-size: 1.4rem;
+  }
+}
